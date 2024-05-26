@@ -22,7 +22,6 @@ VALUES
 CREATE TABLE IF NOT EXISTS customer (
     customer_id BIGINT AUTO_INCREMENT PRIMARY KEY,
     company_name VARCHAR(255) NOT NULL,
-    contact_name VARCHAR(255),
     contact_title VARCHAR(255),
     address VARCHAR(255),
     city VARCHAR(255),

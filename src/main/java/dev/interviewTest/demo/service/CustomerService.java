@@ -15,6 +15,8 @@ public class CustomerService {
 
     public List<Customer> getAllCustomers(){return  customerRepository.findAll();}
 
+    public List<Customer> getAllCustomersByCountries(List<String> countries){return  customerRepository.findByCountries(countries);}
+
     public  Optional<Customer> getCustomerById(Long id){return  customerRepository.findById(id);}
 
     public  Customer createCustomer(Customer newCustomer) {return  customerRepository.save(newCustomer);}
@@ -23,11 +25,8 @@ public class CustomerService {
         Customer existingCustomer = customerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Customer not found with id: " + id));
 
-        if (customerDetails.getCompanyname() != null) {
-            existingCustomer.setCompanyname(customerDetails.getCompanyname());
-        }
-        if (customerDetails.getContactname() != null) {
-            existingCustomer.setContactname(customerDetails.getContactname());
+        if (customerDetails.getCompanyName() != null) {
+            existingCustomer.setCompanyName(customerDetails.getCompanyName());
         }
         if (customerDetails.getContactTitle() != null) {
             existingCustomer.setContactTitle(customerDetails.getContactTitle());
